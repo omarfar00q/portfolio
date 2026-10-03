@@ -93,3 +93,43 @@ if (backToTop) {
   window.addEventListener('hashchange', checkScroll);
   checkScroll();
 }
+
+// Copy email to clipboard
+const copyBtn = document.getElementById('copyEmailBtn');
+const copyBtnText = document.getElementById('copyBtnText');
+const copyBtnIcon = document.getElementById('copyBtnIcon');
+const emailToCopy = 'omarfarooq2424@gmail.com';
+
+if (copyBtn) {
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(emailToCopy);
+      copyBtnText.textContent = 'Copied to Clipboard!';
+      copyBtnIcon.textContent = '✓';
+      copyBtn.classList.add('copied');
+      setTimeout(() => {
+        copyBtnText.textContent = 'Copy Email';
+        copyBtnIcon.textContent = '📋';
+        copyBtn.classList.remove('copied');
+      }, 2500);
+    } catch (err) {
+      // Fallback for older browsers or restricted permissions
+      const textarea = document.createElement('textarea');
+      textarea.value = emailToCopy;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      copyBtnText.textContent = 'Copied to Clipboard!';
+      copyBtnIcon.textContent = '✓';
+      copyBtn.classList.add('copied');
+      setTimeout(() => {
+        copyBtnText.textContent = 'Copy Email';
+        copyBtnIcon.textContent = '📋';
+        copyBtn.classList.remove('copied');
+      }, 2500);
+    }
+  });
+}
