@@ -1431,8 +1431,23 @@ body {
 }
 
 .ach-icon {
-    font-size: 28px;
-    margin-bottom: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 9px;
+    background: rgba(201, 242, 90, 0.08);
+    border: 1px solid rgba(201, 242, 90, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    color: #c9f25a;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.ach-card:hover .ach-icon {
+    background: rgba(201, 242, 90, 0.16);
+    border-color: #c9f25a;
+    transform: translateY(-2px);
 }
 
 .ach-card h4 {
@@ -1475,8 +1490,16 @@ body {
 }
 
 .email-icon {
-    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: rgba(201, 242, 90, 0.08);
+    border: 1px solid rgba(201, 242, 90, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: #c9f25a;
+    flex-shrink: 0;
 }
 
 .email-address {

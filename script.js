@@ -97,19 +97,16 @@ if (backToTop) {
 // Copy email to clipboard
 const copyBtn = document.getElementById('copyEmailBtn');
 const copyBtnText = document.getElementById('copyBtnText');
-const copyBtnIcon = document.getElementById('copyBtnIcon');
 const emailToCopy = 'omarfarooq2424@gmail.com';
 
 if (copyBtn) {
   copyBtn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(emailToCopy);
-      copyBtnText.textContent = 'Copied to Clipboard!';
-      copyBtnIcon.textContent = '✓';
+      copyBtnText.textContent = 'Copied!';
       copyBtn.classList.add('copied');
       setTimeout(() => {
         copyBtnText.textContent = 'Copy Email';
-        copyBtnIcon.textContent = '📋';
         copyBtn.classList.remove('copied');
       }, 2500);
     } catch (err) {
@@ -122,12 +119,10 @@ if (copyBtn) {
       textarea.select();
       document.execCommand('copy');
       document.body.removeChild(textarea);
-      copyBtnText.textContent = 'Copied to Clipboard!';
-      copyBtnIcon.textContent = '✓';
+      copyBtnText.textContent = 'Copied!';
       copyBtn.classList.add('copied');
       setTimeout(() => {
         copyBtnText.textContent = 'Copy Email';
-        copyBtnIcon.textContent = '📋';
         copyBtn.classList.remove('copied');
       }, 2500);
     }
